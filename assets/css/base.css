@@ -1,0 +1,268 @@
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --primary-color: #EE4D2D;
+    --primary-color-rbga: #EE4D2D;
+    --border-color: #dbdbdb;
+    --grow-from: 0.6;
+    --grow-to: 1;
+    --header-height: 120px;
+    --header_navbar-height: 33px;
+    --header_search-height: calc(var(--header-height) - var(--header_navbar-height));
+}
+
+* {
+    box-sizing: inherit;
+}
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+p {
+    font-size: 1rem;
+}
+
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+
+}
+
+.grid__column-2 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
+    
+}
+
+.grid__column-2-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+    margin-bottom: 10px;
+}
+
+.grid__column-10 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3334%;
+}
+
+.padtop-32px {
+    padding-top: 32px;
+}
+
+.mt-50 {
+    margin-top: 48px;
+}
+
+.mb-32 {
+    margin-bottom: 32px;
+}
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--grow-from));
+    }
+    to {
+        transform: scale(var(--grow-to));
+    }
+}
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    animation: fadeIn linear .1s;
+    display: none;
+}
+
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body {
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    animation: growth linear .2s;
+
+}
+/* Button Style */
+.btn {
+    background-color: var(--white-color);
+    border: none;
+    border-radius: 2px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.5rem;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    color: var(--text-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}   
+
+.btn-form {
+    min-width: 142px;
+    height: 34px;
+}
+
+.btn.btn--primary {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.btn.btn-disabled {
+    color: #ccc;
+    cursor: default;
+    background-color: #999;
+}
+
+.btn.btn--size-s {
+    height: 32px;
+}
+
+
+/* Selection CSS */
+
+.select-input {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    min-width: 200px;
+    align-items: center;
+    height: 100%;
+    background-color: var(--white-color);
+}
+
+.select-input__label {
+    font-size: 1.4rem;
+    color: #555;
+    padding-left: 10px;
+}
+
+.select-input__icon {
+    color: #4A4a4a;
+    margin: 0 10px 0 8px;
+    font-size: 1.4rem;
+    position: relative;
+    top: 1px;
+}
+
+.select-input__list {
+    z-index: 2;
+    position: absolute;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    list-style: none;
+    right: 0;
+    top: calc(100% - 7px);
+    padding: 0;
+    width: 100%;
+    box-shadow: 0 2px 1px #ccc;
+    border-radius: 3px;
+    margin-top: 12px;
+    display: none;
+    animation: fadeIn ease-in .2s;
+    
+}
+
+.select-input__list::before {
+    content: " ";
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    left: 0;
+    top: -9px;
+    /* display: block; */
+}
+
+.select-input__item {
+    width:100%;
+    padding: 12px 10px;
+}
+
+.select-input__link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    display: inline-block;
+    padding: 4px 0;
+}
+
+.select-input__link:hover {
+    color: red;
+}
+
+.select-input:hover .select-input__list {
+    display: block;
+} 
+
+/* Pagination CSS Start */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.pagination-item {
+    margin: 0 12px;
+}
+
+.pagination-item--active a {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.pagination-item__link {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 4s00;
+    color: #939393;
+    min-width: 40px;
+    height: 30px;
+    /* dat bien */
+    line-height: 30px; 
+    display: block;
+    text-align: center;
+}
+
+.pagination-item__icon {
+
+}
